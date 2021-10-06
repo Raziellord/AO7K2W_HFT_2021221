@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AO7K2W_HFT_2021221.Models\AO7K2W_HFT_2021221.Models.csproj" />
+    <ProjectReference Include="..\AO7K2W_HFT_2021221.Repository\AO7K2W_HFT_2021221.Repository.csproj" />
+  </ItemGroup>
+
+</Project>
