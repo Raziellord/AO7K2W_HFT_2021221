@@ -163,6 +163,30 @@ namespace AO7K2W_HFT_2021221.Data
             //----------------------------------- USA CONFLICT ---------------------------------------------
 
 
+            //-------------------------------------CREWS ---------------------------------------------------
+
+            Crew uk1 = new Crew() { Id = 1, Name = "George Hiller", Age = 23, Profession = "Tank Commander", Rank = "Sergeant", TankId = cent1.Id };
+            Crew uk2 = new Crew() { Id = 2, Name = "James Pitsbury", Age = 31, Profession = "Tank Commander", Rank = "Major", TankId = cent2.Id };
+
+            Crew ger1 = new Crew() { Id = 3, Name = "Ulrich Aufstadt", Age = 19, Profession = "Loader", Rank = "Cadet", TankId = leo1.Id };
+            Crew ger2 = new Crew() { Id = 4, Name = "Jonah Kingerlich", Age = 25, Profession = "Gunner", Rank = "Private", TankId = leo2.Id };
+
+            Crew rus1 = new Crew() { Id = 5, Name = "Vladimir Segerovovich", Age = 12, Profession = "Tank Commander", Rank = "General", TankId = t34_1.Id };
+            Crew rus2 = new Crew() { Id = 6, Name = "Igor Taran", Age = 46, Profession = "Radioman", Rank = "Sergeant", TankId = t34_2.Id };
+
+            Crew ger3 = new Crew() { Id = 7, Name = "Rudolf Heimlich", Age = 50, Profession = "Tank Commander", Rank = "Major", TankId = panther1.Id };
+            Crew ger4 = new Crew() { Id = 8, Name = "Peter Zonstag", Age = 20, Profession = "Repairman", Rank = "Cadet", TankId = panther2.Id };
+
+            Crew us1 = new Crew() { Id = 9, Name = "George Hiller", Age = 23, Profession = "Tank Commander", Rank = "Sergeant", TankId = sherman1.Id };
+            Crew us2 = new Crew() { Id = 10, Name = "James Pitsbury", Age = 31, Profession = "Tank Commander", Rank = "Major", TankId = sherman2.Id };
+
+            Crew maus1 = new Crew() { Id = 11, Name = "Himmler Goebbels", Age = 69, Profession = "Tank Commander", Rank = "General Major", TankId = maus.Id };
+            Crew pantherk1 = new Crew() { Id = 12, Name = "Gesternvauer Karl", Age = 17, Profession = "Recon", Rank = "Private", TankId = panther3.Id };
+
+            //-------------------------------------CREWS ---------------------------------------------------
+
+
+
 
 
 

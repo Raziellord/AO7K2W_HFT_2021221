@@ -21,7 +21,7 @@ namespace AO7K2W_HFT_2021221.Models
         
         [MaxLength(50)]
         [Required]
-        public string Professions { get; set; }
+        public string Profession { get; set; }
         
         [Required]
         public int Age { get; set; }
