@@ -185,11 +185,25 @@ namespace AO7K2W_HFT_2021221.Data
 
             //-------------------------------------CREWS ---------------------------------------------------
 
+            modelBuilder.Entity<Crew>(entity =>
+            {
+                entity.HasOne(crew => crew.Tank)
+                .WithMany(tank => tank.Crews)
+                .HasForeignKey(crew => crew.TankId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            });
 
+            modelBuilder.Entity<Tank>(entity =>
+            {
+                entity.HasOne(tank => tank.Conflict)
+                .WithMany(conflict => conflict.Tanks)
+                .HasForeignKey(tank => tank.ConflictId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            });
 
-
-
-
+            modelBuilder.Entity<Conflict>().HasData(russia, europe, usa);
+            modelBuilder.Entity<Tank>().HasData(cent1, cent2, leo1, leo2, t34_1, t34_2, panther1, panther2, sherman1, sherman2, maus, panther2);
+            modelBuilder.Entity<Crew>().HasData(uk1, uk2, ger1, ger2, rus1, rus2, ger3, ger4, us1, us2, maus1, pantherk1);
         }
     }
 }
