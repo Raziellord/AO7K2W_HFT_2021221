@@ -6,8 +6,8 @@ namespace AO7K2W_HFT_2021221.Data
 {
     public partial class TankDbContext : DbContext
     {
-        public virtual DbSet<Tank> Tank { get; set; }
-        public virtual DbSet<Crew> Crew { get; set; }
+        public virtual DbSet<Tank> Tanks { get; set; }
+        public virtual DbSet<Crew> Crews { get; set; }
         public virtual DbSet<Conflict> Conflicts { get; set; }
         public TankDbContext()
         {
