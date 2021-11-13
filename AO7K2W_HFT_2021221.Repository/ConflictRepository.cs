@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AO7K2W_HFT_2021221.Repository
 {
-    class ConflictRepository : IConflictRepository
+    public class ConflictRepository : IConflictRepository
     {
         TankDbContext db;
         public ConflictRepository(TankDbContext db)
