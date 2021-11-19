@@ -39,5 +39,20 @@ namespace AO7K2W_HFT_2021221.Logic
         {
             tankRepo.Update(tank);
         }
+
+        public double AVGElimination()
+        {
+            return tankRepo.ReadAll().Average(t => t.Eliminations);
+        }
+
+        public IEnumerable<KeyValuePair<string,double>> TankAverageEliminationByConflict()
+        {
+            return from x in tankRepo.ReadAll()
+                   group x by x.Conflict.NameOfConflict into g
+                   select new KeyValuePair<string, double>
+                   (g.Key, g.Average(t => t.Eliminations));
+        }
+        
+        
     }
 }

@@ -30,6 +30,12 @@ namespace AO7K2W_HFT_2021221.Client
             {
                 Console.WriteLine("Tank name: " + tanks.Nickname);
             }
+
+            
+            foreach (var tanks in ctx.Tanks)
+            {
+                
+            }
             Console.ReadLine();
 
 
