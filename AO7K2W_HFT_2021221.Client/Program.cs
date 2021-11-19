@@ -1,5 +1,6 @@
 ﻿using AO7K2W_HFT_2021221.Data;
 using System;
+using System.Linq;
 
 namespace AO7K2W_HFT_2021221.Client
 {
@@ -24,7 +25,15 @@ namespace AO7K2W_HFT_2021221.Client
             {
                 Console.WriteLine(crew.Name);
             }
+            Console.WriteLine("-------------");
+            foreach (var tanks in ctx.Tanks)
+            {
+                Console.WriteLine("Tank name: " + tanks.Nickname);
+            }
             Console.ReadLine();
+
+
+            
         }
     }
 }
