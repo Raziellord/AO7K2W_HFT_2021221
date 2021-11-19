@@ -40,6 +40,12 @@ namespace AO7K2W_HFT_2021221.Logic
             crewRepo.Update(crew);
         }
 
-        
+        public IEnumerable<KeyValuePair<string,double>> AVGAgeByTank()
+        {
+            return from x in crewRepo.ReadAll()
+                   group x by x.Tank.Nickname into g
+                   select new KeyValuePair<string, double>
+                   (g.Key, g.Average(t => t.Age));
+        }
     }
 }
