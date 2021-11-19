@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AO7K2W_HFT_2021221.Models
 {
-    [Table("crew")]
+    [Table("Crews")]
     public class Crew
     {
         [Key]
