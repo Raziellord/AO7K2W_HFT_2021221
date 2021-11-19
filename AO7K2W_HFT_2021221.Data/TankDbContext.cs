@@ -1,6 +1,7 @@
 ﻿using AO7K2W_HFT_2021221.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 
 namespace AO7K2W_HFT_2021221.Data
 {
@@ -49,7 +50,7 @@ namespace AO7K2W_HFT_2021221.Data
             Conflict europe = new Conflict() { Id = 2, NameOfConflict = "European Conflict", Casualties = 4958851, DateOfConflict = DateTime.Parse("1975.05.15"), Winner = "Germany" };
             Conflict usa = new Conflict() { Id = 3, NameOfConflict = "United States of America Conflict", Casualties = 1, DateOfConflict = DateTime.Parse("2005.09.23"), Winner = "USA" };
 
-
+            
             //----------------------------------- EUROPEAN CONFLICT ----------------------------------------
             Tank cent1 = new Tank()
             {
@@ -182,31 +183,97 @@ namespace AO7K2W_HFT_2021221.Data
 
             //-------------------------------------CREWS ---------------------------------------------------
 
-            Crew uk1 = new Crew() { Id = 1, Name = "George Hiller", Age = 23, Profession = "Tank Commander", Rank = "Sergeant", TankId = cent1.Id };
-            Crew uk2 = new Crew() { Id = 2, Name = "James Pitsbury", Age = 31, Profession = "Tank Commander", Rank = "Major", TankId = cent2.Id };
+            var crew = new List<Crew>()
+            {
+                //(╯°□°）╯︵ ┻━┻
+             //CENTURION 1
+             new Crew() { Id = 1, Name = "George Hiller", Age = 23, Profession = "Tank Commander", Rank = "Commander", TankId = cent1.Id },
+             new Crew(){ Id = 2, Name = "Churchill  Winston", Age = 56, Profession = "Gunner", Rank = "Major", TankId = cent1.Id },
+             new Crew(){ Id = 3, Name = "Peter Pettigrew", Age = 12, Profession = "Loader", Rank = "Lieutenant", TankId = cent1.Id },
+             new Crew(){ Id = 4, Name = "Harry Potter", Age = 33, Profession = "Radioman", Rank = "Sergeant", TankId = cent1.Id },
+             new Crew(){ Id = 5, Name = "James Cameron", Age = 25, Profession = "Driver", Rank = "Private", TankId = cent1.Id },
 
-            Crew ger1 = new Crew() { Id = 3, Name = "Ulrich Aufstadt", Age = 19, Profession = "Loader", Rank = "Cadet", TankId = leo1.Id };
-            Crew ger2 = new Crew() { Id = 4, Name = "Jonah Kingerlich", Age = 25, Profession = "Gunner", Rank = "Private", TankId = leo2.Id };
-
-            Crew rus1 = new Crew() { Id = 5, Name = "Vladimir Segerovovich", Age = 12, Profession = "Tank Commander", Rank = "General", TankId = t34_1.Id };
-            Crew rus2 = new Crew() { Id = 6, Name = "Igor Taran", Age = 46, Profession = "Radioman", Rank = "Sergeant", TankId = t34_2.Id };
-
-            Crew ger3 = new Crew() { Id = 7, Name = "Rudolf Heimlich", Age = 50, Profession = "Tank Commander", Rank = "Major", TankId = panther1.Id };
-            Crew ger4 = new Crew() { Id = 8, Name = "Peter Zonstag", Age = 20, Profession = "Repairman", Rank = "Cadet", TankId = panther2.Id };
-
-            Crew us1 = new Crew() { Id = 9, Name = "George Hiller", Age = 23, Profession = "Tank Commander", Rank = "Sergeant", TankId = sherman1.Id };
-            Crew us2 = new Crew() { Id = 10, Name = "James Pitsbury", Age = 31, Profession = "Tank Commander", Rank = "Major", TankId = sherman2.Id };
-
-            Crew maus1 = new Crew() { Id = 11, Name = "Himmler Goebbels", Age = 69, Profession = "Tank Commander", Rank = "General Major", TankId = maus.Id };
-            Crew pantherk1 = new Crew() { Id = 12, Name = "Gesternvauer Karl", Age = 17, Profession = "Recon", Rank = "Private", TankId = panther3.Id };
-
+             //CENTURION 2 
+             new Crew() { Id = 6, Name = "James Pitsbury", Age = 31, Profession = "Tank Commander", Rank = "Commander", TankId = cent2.Id },
+             new Crew() { Id = 7, Name = "Sam Hotfield", Age = 27, Profession = "Gunner", Rank = "Lieutenant", TankId = cent2.Id },
+             new Crew() { Id = 8, Name = "Bill  Hunter", Age = 28, Profession = "Loader", Rank = "Lieutenant", TankId = cent2.Id },
+             new Crew() { Id = 9, Name = "Wolf Steven", Age = 44, Profession = "Radioman", Rank = "Major", TankId = cent2.Id },
+             new Crew() { Id = 10, Name = "George Hopper", Age = 22, Profession = "Driver", Rank = "Sergeant", TankId = cent2.Id },
+             //LEOPARD 1
+             new Crew() { Id = 11, Name = "Ulrich Aufstadt", Age = 19, Profession = "Tank Commander", Rank = "Commander", TankId = leo1.Id },
+             new Crew() { Id = 12, Name = "Bastian Veiel", Age = 21, Profession = "Gunner", Rank = "Major", TankId = leo1.Id },
+             new Crew() { Id = 13, Name = "Frank Gehrig", Age = 45, Profession = "Loader", Rank = "Cadet", TankId = leo1.Id },
+             new Crew() { Id = 14, Name = "Dominik Nussbaum", Age = 55, Profession = "Driver", Rank = "Cadet", TankId = leo1.Id },
+             //LEOPARD 2
+             new Crew() { Id = 15, Name = "Jonah Kingerlich", Age = 25, Profession = "Tank Commander", Rank = "Commander", TankId = leo2.Id },
+             new Crew() { Id = 16, Name = "Casper Feigenbaum", Age = 25, Profession = "Gunner", Rank = "Major", TankId = leo2.Id },
+             new Crew() { Id = 17, Name = "Lennard Gollwitzer", Age = 25, Profession = "Loader", Rank = "Private", TankId = leo2.Id },
+             new Crew() { Id = 18, Name = "Marius Dischinger", Age = 25, Profession = "Driver", Rank = "Cadet", TankId = leo2.Id },
+             //T34_1
+             new Crew() { Id = 19, Name = "Vladimir Segerovovich", Age = 12, Profession = "Tank Commander", Rank = "General", TankId = t34_1.Id },
+             new Crew() { Id = 20, Name = "Tikhonov Cheslav Grigorievich", Age = 27, Profession = "Gunner", Rank = "Major", TankId = t34_1.Id },
+             new Crew() { Id = 21, Name = "Yermolovo Ikovle Vladislavovich", Age = 30, Profession = "Loader", Rank = "Lieutenant", TankId = t34_1.Id },
+             new Crew() { Id = 22, Name = "Zhernakov Ruslan (Rusya) Yemelyanovich", Age = 20, Profession = "Radioman", Rank = "Lieutenant", TankId = t34_1.Id },
+             new Crew() { Id = 23, Name = "Pitosin Mikhail (Misha) Aleskeevich", Age = 56, Profession = "Driver", Rank = "Lieutenant", TankId = t34_1.Id },
+             //T34_2
+             new Crew() { Id = 24, Name = "Igor Taran", Age = 46, Profession = "Tank Commander", Rank = "Commander", TankId = t34_2.Id },
+             new Crew() { Id = 25, Name = "Arkadiy Kirillovich", Age = 44, Profession = "Gunner", Rank = "Major", TankId = t34_2.Id },
+             new Crew() { Id = 26, Name = "Sobchak Kliment Ivanovich", Age = 45, Profession = "Loader", Rank = "Liuetenant", TankId = t34_2.Id },
+             new Crew() { Id = 27, Name = "Muravyov Benedikt Fyodorovich", Age = 43, Profession = "Driver", Rank = "Cadet", TankId = t34_2.Id },
+             //PANTHER 1
+             new Crew() { Id = 28, Name = "Rudolf Heimlich", Age = 50, Profession = "Tank Commander", Rank = "General", TankId = panther1.Id },
+             new Crew() { Id = 29, Name = "Claus Schönfinkel", Age = 23, Profession = "Gunner", Rank = "Major", TankId = panther1.Id },
+             new Crew() { Id = 30, Name = "Sven Quint", Age = 34, Profession = "Loader", Rank = "Major", TankId = panther1.Id },
+             new Crew() { Id = 31, Name = "Paul Schwarzenberger", Age = 38, Profession = "Loader", Rank = "Sergeant", TankId = panther1.Id },
+             new Crew() { Id = 32, Name = "Emanuel Kratochwil", Age = 42, Profession = "Radioman", Rank = "Sergeant", TankId = panther1.Id },
+             new Crew() { Id = 33, Name = "Jannik Frey", Age = 60, Profession = "Driver", Rank = "Sergeant", TankId = panther1.Id },
+             //PANTHER 2
+             new Crew() { Id = 34, Name = "Peter Zonstag", Age = 20, Profession = "Tank Commander", Rank = "Commander", TankId = panther2.Id },
+             new Crew() { Id = 35, Name = "Tom Koch", Age = 29, Profession = "Gunner", Rank = "Major", TankId = panther2.Id },
+             new Crew() { Id = 36, Name = "Willy Schmuck", Age = 31, Profession = "Loader", Rank = "Cadet", TankId = panther2.Id },
+             new Crew() { Id = 37, Name = "Isaac Mallwitz", Age = 35, Profession = "Loader", Rank = "Major", TankId = panther2.Id },
+             new Crew() { Id = 38, Name = "Christopher Blumhardt", Age = 41, Profession = "Radioman", Rank = "Cadet", TankId = panther2.Id },
+             new Crew() { Id = 39, Name = "Arne Wolf", Age = 21, Profession = "Driver", Rank = "Private", TankId = panther2.Id },
+             //SHERMAN 1
+             new Crew() { Id = 40, Name = "Peter Griffin", Age = 23, Profession = "Tank Commander", Rank = "Commander", TankId = sherman1.Id },
+             new Crew() { Id = 41, Name = "Christopher Matthews", Age = 32, Profession = "Gunner", Rank = "General", TankId = sherman1.Id },
+             new Crew() { Id = 42, Name = "Max Powell", Age = 55, Profession = "Radioman", Rank = "Sergeant", TankId = sherman1.Id },
+             new Crew() { Id = 43, Name = "Jayden Ward", Age = 24, Profession = "Loader", Rank = "Sergeant", TankId = sherman1.Id },
+             new Crew() { Id = 44, Name = "Jackson Wright", Age = 26, Profession = "Driver", Rank = "Private", TankId = sherman1.Id },
+             //SHERMAN 2
+             new Crew() { Id = 45, Name = "Christian Griffin", Age = 31, Profession = "Tank Commander", Rank = "Commander", TankId = sherman2.Id },
+             new Crew() { Id = 46, Name = "Jacob Matthews", Age = 36, Profession = "Gunner", Rank = "Private", TankId = sherman2.Id },
+             new Crew() { Id = 47, Name = "Johann Marshall", Age = 33, Profession = "Loader", Rank = "Sergeant", TankId = sherman2.Id },
+             new Crew() { Id = 48, Name = "Hayden Cunningham", Age = 34, Profession = "Driver", Rank = "Major", TankId = sherman2.Id },
+             //MAUS
+             new Crew() { Id = 49, Name = "Himmler Goebbels", Age = 69, Profession = "Tank Commander", Rank = "General Major", TankId = maus.Id },
+             new Crew() { Id = 50, Name = "Kaspar Grendel", Age = 60, Profession = "Tank Commander", Rank = "Major", TankId = maus.Id },
+             new Crew() { Id = 51, Name = "Philipp Fresenius", Age = 55, Profession = "Gunner", Rank = "Sergeant", TankId = maus.Id },
+             new Crew() { Id = 52, Name = "Philip Pröll", Age = 50, Profession = "Gunner", Rank = "Sergeant", TankId = maus.Id },
+             new Crew() { Id = 53, Name = "Eduard Gebhardt", Age = 42, Profession = "Loader", Rank = "Private", TankId = maus.Id },
+             new Crew() { Id = 54, Name = "Stephen Cossmann", Age = 33, Profession = "Loader", Rank = "Sergeant", TankId = maus.Id },
+             new Crew() { Id = 55, Name = "Caesar Schweinitz", Age = 46, Profession = "Radioman", Rank = "Lieutenant", TankId = maus.Id },
+             new Crew() { Id = 56, Name = "Clemens Selig", Age = 40, Profession = "Driver", Rank = "Cadet", TankId = maus.Id },
+             new Crew() { Id = 57, Name = "Bruno Weinmann", Age = 37, Profession = "Driver", Rank = "Major", TankId = maus.Id },
+             //PANTHER 3
+             new Crew() { Id = 58, Name = "Gesternvauer Karl", Age = 17, Profession = "Tank Commander", Rank = "Commander", TankId = panther3.Id },
+             new Crew() { Id = 59, Name = "Theo Heydrich", Age = 17, Profession = "Gunner", Rank = "Major", TankId = panther3.Id },
+             new Crew() { Id = 60, Name = "Leo Traeger", Age = 17, Profession = "Loader", Rank = "Sergeant", TankId = panther3.Id },
+             new Crew() { Id = 61, Name = "Reiner Joachim", Age = 17, Profession = "Recon", Rank = "Cadet", TankId = panther3.Id },
+             new Crew() { Id = 62, Name = "Raphael Hengsbach", Age = 17, Profession = "Driver", Rank = "General", TankId = panther3.Id },
+             new Crew() { Id = 63, Name = "Josua Spiegelmann", Age = 17, Profession = "Repairman", Rank = "Private", TankId = panther3.Id }
+             };
+            //┬──┬ ノ( ゜-゜ノ)
             //-------------------------------------CREWS ---------------------------------------------------
 
-            
+
+
+
+
 
             modelBuilder.Entity<Conflict>().HasData(russia, europe, usa);
             modelBuilder.Entity<Tank>().HasData(cent1, cent2, leo1, leo2, t34_1, t34_2, panther1, panther2, sherman1, sherman2, maus, panther3);
-            modelBuilder.Entity<Crew>().HasData(uk1, uk2, ger1, ger2, rus1, rus2, ger3, ger4, us1, us2, maus1, pantherk1);
+            modelBuilder.Entity<Crew>().HasData(crew);
         }
     }
 }
