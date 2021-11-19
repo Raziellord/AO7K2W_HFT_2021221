@@ -22,12 +22,29 @@ namespace AO7K2W_HFT_2021221.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseLazyLoadingProxies().UseSqlServer(@"data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\TankDb.mdf;integrated security=True;MultipleActiveResultSets=True");
+                optionsBuilder.UseLazyLoadingProxies().UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;Attachdbfilename=|DataDirectory|\TankDb.mdf;Integrated Security=True");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Crew>(entity =>
+            {
+                entity.HasOne(crew => crew.Tank)
+                .WithMany(tank => tank.Crews)
+                .HasForeignKey(crew => crew.TankId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            });
+
+            modelBuilder.Entity<Tank>(entity =>
+            {
+                
+                entity.HasOne(tank => tank.Conflict)
+                .WithMany(conflict => conflict.Tanks)
+                .HasForeignKey(tank => tank.ConflictId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+            });
+
             Conflict russia = new Conflict() { Id = 1, NameOfConflict = "Russian Conflict", Casualties = 10000, DateOfConflict = DateTime.Parse("2001.01.13"), Winner = "Russia" };
             Conflict europe = new Conflict() { Id = 2, NameOfConflict = "European Conflict", Casualties = 4958851, DateOfConflict = DateTime.Parse("1975.05.15"), Winner = "Germany" };
             Conflict usa = new Conflict() { Id = 3, NameOfConflict = "United States of America Conflict", Casualties = 1, DateOfConflict = DateTime.Parse("2005.09.23"), Winner = "USA" };
@@ -185,24 +202,10 @@ namespace AO7K2W_HFT_2021221.Data
 
             //-------------------------------------CREWS ---------------------------------------------------
 
-            modelBuilder.Entity<Crew>(entity =>
-            {
-                entity.HasOne(crew => crew.Tank)
-                .WithMany(tank => tank.Crews)
-                .HasForeignKey(crew => crew.TankId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
-            });
-
-            modelBuilder.Entity<Tank>(entity =>
-            {
-                entity.HasOne(tank => tank.Conflict)
-                .WithMany(conflict => conflict.Tanks)
-                .HasForeignKey(tank => tank.ConflictId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
-            });
+            
 
             modelBuilder.Entity<Conflict>().HasData(russia, europe, usa);
-            modelBuilder.Entity<Tank>().HasData(cent1, cent2, leo1, leo2, t34_1, t34_2, panther1, panther2, sherman1, sherman2, maus, panther2);
+            modelBuilder.Entity<Tank>().HasData(cent1, cent2, leo1, leo2, t34_1, t34_2, panther1, panther2, sherman1, sherman2, maus, panther3);
             modelBuilder.Entity<Crew>().HasData(uk1, uk2, ger1, ger2, rus1, rus2, ger3, ger4, us1, us2, maus1, pantherk1);
         }
     }

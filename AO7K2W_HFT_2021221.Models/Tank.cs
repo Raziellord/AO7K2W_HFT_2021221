@@ -21,7 +21,7 @@ namespace AO7K2W_HFT_2021221.Models
         
         public string Nickname { get; set; }
 
-        public int? Eliminations { get; set; }
+        public int Eliminations { get; set; }
 
         [Required]
         public int CrewSpace { get; set; }
@@ -33,9 +33,11 @@ namespace AO7K2W_HFT_2021221.Models
         [NotMapped]
         public virtual Conflict Conflict { get; set; }
 
+        [ForeignKey(nameof(Conflict))]
         public int ConflictId { get; set; }
+        [NotMapped]
+        public virtual ICollection<Crew> Crews { get; set; }
 
-        public ICollection<Crew> Crews { get; set; }
         public Tank()
         {
             Crews = new HashSet<Crew>();
