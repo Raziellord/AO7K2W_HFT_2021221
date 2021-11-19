@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace AO7K2W_HFT_2021221.Repository
 {
-    interface IConflictRepository
+    public interface IConflictRepository
     {
         void Create(Conflict conflict);
         void Delete(int id);
