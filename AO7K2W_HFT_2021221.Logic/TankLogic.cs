@@ -57,5 +57,23 @@ namespace AO7K2W_HFT_2021221.Logic
         {
             return tankRepo.ReadAll().Where(c => c.Crews.Any(z => z.Profession.Contains("Radioman")));
         }
+
+        public IEnumerable<KeyValuePair<string, double>> TankAverageStartOfServiceByConflict()
+        {
+            return from x in tankRepo.ReadAll()
+                   group x by x.Conflict.NameOfConflict into g
+                   select new KeyValuePair<string, double>
+                   (g.Key, g.Average(t => t.StartOfService.Year));
+        }
+
+        public IEnumerable<Tank> TanksFromConflictsWithOneOrLessCausalties()
+        {
+            return tankRepo.ReadAll().Where(c => c.Conflict.Casualties <= 1);
+        }
+
+        public IEnumerable<Tank> TanksWhereAverageCrewAgeOver30()
+        {
+            return tankRepo.ReadAll().Where(t => t.Crews.Average(z => z.Age) > 30);
+        }
     }
 }

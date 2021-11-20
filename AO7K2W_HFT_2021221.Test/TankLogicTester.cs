@@ -23,6 +23,12 @@ namespace AO7K2W_HFT_2021221.Test
             Conflict fakeConflict = new Conflict();
             fakeConflict.Id = 1;
             fakeConflict.NameOfConflict = "Conflict of Test";
+            fakeConflict.Casualties = 1;
+
+            Crew fakeCrew = new Crew() { Id = 9, Name = "Wolf Steven", Age = 44, Profession = "Radioman", Rank = "Major" };
+            List<Crew> crews = new List<Crew>();
+            crews.Add(fakeCrew);
+
             var tanks = new List<Tank>()
             {
                  new Tank()
@@ -34,8 +40,10 @@ namespace AO7K2W_HFT_2021221.Test
                 Eliminations = 41,
                 Nickname = "Leowagen",
                 Model = "Leopard 1",
-                Conflict = fakeConflict
-                },//3
+                Conflict = fakeConflict,
+                Crews = crews
+
+                },
 
                  new Tank()
                 {
@@ -46,12 +54,14 @@ namespace AO7K2W_HFT_2021221.Test
                 Eliminations = 1000,
                 Nickname = "Blutrünstige",
                 Model = "Maus",
-                Conflict = fakeConflict
+                Conflict = fakeConflict,
+                Crews = crews
 
-                }//11
+                }
             }.AsQueryable();
 
             mockTankRepo.Setup((t) => t.ReadAll()).Returns(tanks);
+            
 
 
             tl = new TankLogic(mockTankRepo.Object);
@@ -82,7 +92,45 @@ namespace AO7K2W_HFT_2021221.Test
             Assert.That(result, Is.EqualTo(expected));
         }
 
-        
+        [Test]
+        public void TanksWithRadioManTest()
+        {
+            var result = tl.TanksWithRadioMan();
+            var expected = tl.ReadAll();
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
+        [Test]
+        public void TanksAverageServiceStartByConflictTest()
+        {
+            var result = tl.TankAverageStartOfServiceByConflict();
+
+            var expected = new List
+                <KeyValuePair<string, double>>()
+            {
+                new KeyValuePair<string, double>
+                ("Conflict of Test",1964.5)
+            };
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void TanksFromConflictsWithOneOrLessCasualtiesTest()
+        {
+            var result = tl.TanksFromConflictsWithOneOrLessCausalties();
+            var expected = tl.ReadAll();
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void TanksCrewAgeAverageOver30Test()
+        {
+            var result = tl.TanksWhereAverageCrewAgeOver30();
+            var expected = tl.ReadAll();
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }
 
