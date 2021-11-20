@@ -18,6 +18,12 @@ namespace AO7K2W_HFT_2021221.Test
         public void Init()
         {
             var mockCrewRepository = new Mock<ICrewRepository>();
+            Conflict fakeConflict = new Conflict();
+            fakeConflict.Id = 1;
+            fakeConflict.NameOfConflict = "TesztConflict";
+            fakeConflict.DateOfConflict = DateTime.Parse("2021.11.19");
+            fakeConflict.Winner = "USA";
+
 
             Tank fakeTank = new Tank();
             fakeTank.Id = 1;
@@ -25,6 +31,12 @@ namespace AO7K2W_HFT_2021221.Test
             fakeTank.StartOfService = DateTime.Parse("2021.11.19");
             fakeTank.CrewSpace = 5;
             fakeTank.Model = "Teszt";
+
+            List<Tank> list = new List<Tank>();
+            list.Add(fakeTank);
+
+            fakeConflict.Tanks = list;
+            fakeTank.Conflict = fakeConflict;
 
             var crews = new List<Crew>()
             {
@@ -68,6 +80,16 @@ namespace AO7K2W_HFT_2021221.Test
         public void Crew1950Test()
         {
             var result = cl.CrewsAfter1950Tanks();
+
+            var expected = cl.ReadAll();
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
+        
+        [Test]
+        public void CrewsWhereConflictWinnerUSATest()
+        {
+            var result = cl.CrewsWhereConflictWinnerUSA();
 
             var expected = cl.ReadAll();
 

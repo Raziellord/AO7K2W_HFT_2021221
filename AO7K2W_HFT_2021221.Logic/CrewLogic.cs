@@ -60,5 +60,10 @@ namespace AO7K2W_HFT_2021221.Logic
             return crewRepo.ReadAll().Where(t => t.Tank.StartOfService.Year > 1950);
         }
 
+        public IEnumerable<Crew> CrewsWhereConflictWinnerUSA()
+        {
+            return crewRepo.ReadAll().Where(t => t.Tank.Conflict.Winner == "USA");
+        }
+
     }
 }
