@@ -39,5 +39,29 @@ namespace AO7K2W_HFT_2021221.Logic
         {
             conflictRepo.Update(conflict);
         }
+
+        public IEnumerable<Conflict> ConflictsWhereAvgEliminationOver100()
+        {
+            return conflictRepo.ReadAll().Where(t => t.Tanks.Average(e => e.Eliminations) > 100);
+        }
+        public IEnumerable<Conflict> ConflictsWhereAvgCrewAgeOver30()
+        {
+            return conflictRepo.ReadAll().Where(t => t.Tanks.Any(t => t.Crews.Average(z => z.Age) > 30));
+        }
+        public IEnumerable<Conflict> ConflictsWhereTankHasRadioman()
+        {
+            return conflictRepo.ReadAll().Where(t => t.Tanks.Any(c => c.Crews.Any(p => p.Profession.Contains("Radioman"))));
+        }
+
+        public IEnumerable<Conflict> ConflictsWhereTankServiceStartAvereageOver1950()
+        {
+            return conflictRepo.ReadAll().Where(t => t.Tanks.Average(s => s.StartOfService.Year) > 1950);
+        }
+
+        public IEnumerable<Conflict> ConflictsWhereGeneralMajorParticipated()
+        {
+            return conflictRepo.ReadAll().Where(t => t.Tanks.Any(c => c.Crews.Any(r => r.Rank.Contains("General Major"))));
+        }
+        
     }
 }
