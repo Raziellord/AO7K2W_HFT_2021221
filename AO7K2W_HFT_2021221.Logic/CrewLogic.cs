@@ -65,5 +65,10 @@ namespace AO7K2W_HFT_2021221.Logic
             return crewRepo.ReadAll().Where(t => t.Tank.Conflict.Winner == "USA");
         }
 
+        public IEnumerable<Crew> CrewsWhoParticipatedInRussianConflict()
+        {
+            return crewRepo.ReadAll().Where(t => t.Tank.Conflict.NameOfConflict == "Russian Conflict");
+        }
+
     }
 }

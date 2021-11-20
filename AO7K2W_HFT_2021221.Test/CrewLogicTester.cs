@@ -20,7 +20,7 @@ namespace AO7K2W_HFT_2021221.Test
             var mockCrewRepository = new Mock<ICrewRepository>();
             Conflict fakeConflict = new Conflict();
             fakeConflict.Id = 1;
-            fakeConflict.NameOfConflict = "TesztConflict";
+            fakeConflict.NameOfConflict = "Russian Conflict";
             fakeConflict.DateOfConflict = DateTime.Parse("2021.11.19");
             fakeConflict.Winner = "USA";
 
@@ -93,6 +93,14 @@ namespace AO7K2W_HFT_2021221.Test
 
             var expected = cl.ReadAll();
 
+            Assert.That(result, Is.EqualTo(expected));
+        }
+
+        [Test]
+        public void CrewsWhoParticipatedInRussiaTest()
+        {
+            var result = cl.CrewsWhoParticipatedInRussianConflict();
+            var expected = cl.ReadAll();
             Assert.That(result, Is.EqualTo(expected));
         }
     }
