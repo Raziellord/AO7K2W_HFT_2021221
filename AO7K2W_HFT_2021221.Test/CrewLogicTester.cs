@@ -51,5 +51,27 @@ namespace AO7K2W_HFT_2021221.Test
             Assert.That(result, Is.EqualTo(expected));
         }
 
+        [Test]
+        public void MaxAgeByTankTest()
+        {
+            var result = cl.OldestAgeByTank();
+
+            var expected = new List<KeyValuePair<string, double>>()
+            {
+                new KeyValuePair<string,double>
+                ("Tesztertank",56)
+            };
+            Assert.That(result, Is.EqualTo(expected));
+        }
+        
+        [Test]
+        public void Crew1950Test()
+        {
+            var result = cl.CrewsAfter1950Tanks();
+
+            var expected = cl.ReadAll();
+
+            Assert.That(result, Is.EqualTo(expected));
+        }
     }
 }

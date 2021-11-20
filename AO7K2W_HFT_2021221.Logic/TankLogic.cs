@@ -53,6 +53,9 @@ namespace AO7K2W_HFT_2021221.Logic
                    (g.Key, g.Average(t => t.Eliminations));
         }
         
-        
+        public IEnumerable<Tank> TanksWithRadioMan()
+        {
+            return tankRepo.ReadAll().Where(c => c.Crews.Any(z => z.Profession.Contains("Radioman")));
+        }
     }
 }

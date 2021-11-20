@@ -13,7 +13,7 @@ namespace AO7K2W_HFT_2021221.Test
     public class TankLogicTester
     {
         TankLogic tl;
-        
+
 
         [SetUp]
         public void Init()
@@ -47,15 +47,16 @@ namespace AO7K2W_HFT_2021221.Test
                 Nickname = "Blutrünstige",
                 Model = "Maus",
                 Conflict = fakeConflict
-                
+
                 }//11
             }.AsQueryable();
 
             mockTankRepo.Setup((t) => t.ReadAll()).Returns(tanks);
-            
+
 
             tl = new TankLogic(mockTankRepo.Object);
         }
+
 
 
         [Test]
@@ -80,6 +81,8 @@ namespace AO7K2W_HFT_2021221.Test
             };
             Assert.That(result, Is.EqualTo(expected));
         }
+
+        
     }
 }
 
