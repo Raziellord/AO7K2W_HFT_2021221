@@ -48,7 +48,6 @@ namespace AO7K2W_HFT_2021221.Test
                 new KeyValuePair<string,double>
                 ("Tesztertank",29.8)
             };
-
             Assert.That(result, Is.EqualTo(expected));
         }
 

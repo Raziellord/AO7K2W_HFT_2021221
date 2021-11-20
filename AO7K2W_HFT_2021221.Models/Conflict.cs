@@ -26,6 +26,7 @@ namespace AO7K2W_HFT_2021221.Models
 
         public string Winner { get; set; }
 
+        [NotMapped]
         public virtual ICollection<Tank> Tanks { get; set; }
 
         public Conflict()
