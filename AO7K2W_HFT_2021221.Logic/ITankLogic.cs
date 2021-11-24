@@ -17,7 +17,7 @@ namespace AO7K2W_HFT_2021221.Logic
         IEnumerable<KeyValuePair<string, double>> TankAverageEliminationByConflict();
         IEnumerable<Tank> TanksWithRadioMan();
         IEnumerable<KeyValuePair<string, double>> TankAverageStartOfServiceByConflict();
-        IEnumerable<Tank> TanksFromConflictsWithOneOrLessCausalties();
+        IEnumerable<Tank> TanksFromConflictsWithOneOrLessCasualties();
         IEnumerable<Tank> TanksWhereAverageCrewAgeOver30();
     }
 }

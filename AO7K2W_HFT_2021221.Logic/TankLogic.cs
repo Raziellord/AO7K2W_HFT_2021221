@@ -74,7 +74,7 @@ namespace AO7K2W_HFT_2021221.Logic
                    (g.Key, g.Average(t => t.StartOfService.Year));
         }
 
-        public IEnumerable<Tank> TanksFromConflictsWithOneOrLessCausalties()
+        public IEnumerable<Tank> TanksFromConflictsWithOneOrLessCasualties()
         {
             return tankRepo.ReadAll().Where(c => c.Conflict.Casualties <= 1);
         }

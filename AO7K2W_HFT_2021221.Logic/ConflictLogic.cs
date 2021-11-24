@@ -61,7 +61,7 @@ namespace AO7K2W_HFT_2021221.Logic
             return conflictRepo.ReadAll().Where(t => t.Tanks.Any(c => c.Crews.Any(p => p.Profession.Contains("Radioman"))));
         }
 
-        public IEnumerable<Conflict> ConflictsWhereTankServiceStartAvereageOver1950()
+        public IEnumerable<Conflict> ConflictsWhereTankServiceStartAverageOver1950()
         {
             return conflictRepo.ReadAll().Where(t => t.Tanks.Average(s => s.StartOfService.Year) > 1950);
         }

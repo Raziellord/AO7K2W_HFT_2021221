@@ -114,7 +114,7 @@ namespace AO7K2W_HFT_2021221.Test
         [Test]
         public void TanksFromConflictsWithOneOrLessCasualtiesTest()
         {
-            var result = tl.TanksFromConflictsWithOneOrLessCausalties();
+            var result = tl.TanksFromConflictsWithOneOrLessCasualties();
             var expected = tl.ReadAll();
 
             Assert.That(result, Is.EqualTo(expected));

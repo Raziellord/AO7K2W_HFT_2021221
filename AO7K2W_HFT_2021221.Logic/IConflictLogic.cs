@@ -17,7 +17,7 @@ namespace AO7K2W_HFT_2021221.Logic
         IEnumerable<Conflict> ConflictsWhereAvgEliminationOver100();
         IEnumerable<Conflict> ConflictsWhereAvgCrewAgeOver30();
         IEnumerable<Conflict> ConflictsWhereTankHasRadioman();
-        IEnumerable<Conflict> ConflictsWhereTankServiceStartAvereageOver1950();
+        IEnumerable<Conflict> ConflictsWhereTankServiceStartAverageOver1950();
         IEnumerable<Conflict> ConflictsWhereGeneralMajorParticipated();
     }
 }

@@ -79,7 +79,7 @@ namespace AO7K2W_HFT_2021221.Test
         [Test]
         public void ConflictsWhereTankServiceStartAvereageOver1950Test()
         {
-            var result = cl.ConflictsWhereTankServiceStartAvereageOver1950();
+            var result = cl.ConflictsWhereTankServiceStartAverageOver1950();
             var expected = cl.ReadAll();
             Assert.That(result, Is.EqualTo(expected));
         }
