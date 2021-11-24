@@ -12,47 +12,46 @@ namespace AO7K2W_HFT_2021221.Endpoint.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class ConflictController : ControllerBase
+    public class TankController : ControllerBase
     {
-        IConflictLogic cl;
-        public ConflictController(IConflictLogic cl)
+        ITankLogic tl;
+        public TankController(ITankLogic tl)
         {
-            this.cl = cl;
+            this.tl = tl;
         }
-        // GET: /conflict
+        // GET: /tank
         [HttpGet]
-        public IEnumerable<Conflict> Get()
+        public IEnumerable<Tank> Get()
         {
-            return cl.ReadAll();
+            return tl.ReadAll();
         }
 
-        // GET conflict/5
+        // GET /tank/5
         [HttpGet("{id}")]
-        public Conflict Get(int id)
+        public Tank Get(int id)
         {
-            return cl.Read(id);
+            return tl.Read(id);
         }
 
-        // POST /conflict
+        // POST /tank
         [HttpPost]
-        public void Post([FromBody] Conflict value)
+        public void Post([FromBody] Tank value)
         {
-            cl.Create(value);
+            tl.Create(value);
         }
 
-        // PUT /conflict
+        // PUT /tank
         [HttpPut("{id}")]
-        public void Put([FromBody] Conflict value)
+        public void Put([FromBody] Tank value)
         {
-            cl.Update(value);
+            tl.Update(value);
         }
 
-        // DELETE /conflict/5
+        // DELETE /tank/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            cl.Delete(id);
+            tl.Delete(id);
         }
-
     }
 }

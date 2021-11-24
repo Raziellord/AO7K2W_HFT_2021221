@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace AO7K2W_HFT_2021221.Models
@@ -31,6 +32,7 @@ namespace AO7K2W_HFT_2021221.Models
 
         
         [NotMapped]
+        [JsonIgnore]
         public virtual Conflict Conflict { get; set; }
 
         [ForeignKey(nameof(Conflict))]

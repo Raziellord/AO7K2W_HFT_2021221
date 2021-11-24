@@ -12,47 +12,48 @@ namespace AO7K2W_HFT_2021221.Endpoint.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class ConflictController : ControllerBase
+    public class CrewController : ControllerBase
     {
-        IConflictLogic cl;
-        public ConflictController(IConflictLogic cl)
+        ICrewLogic cl;
+        public CrewController(ICrewLogic cl)
         {
             this.cl = cl;
         }
-        // GET: /conflict
+
+        // GET: /crew
         [HttpGet]
-        public IEnumerable<Conflict> Get()
+        public IEnumerable<Crew> Get()
         {
             return cl.ReadAll();
         }
 
-        // GET conflict/5
+        // GET /crew/5
         [HttpGet("{id}")]
-        public Conflict Get(int id)
+        public Crew Get(int id)
         {
             return cl.Read(id);
         }
 
-        // POST /conflict
+        // POST /crew
         [HttpPost]
-        public void Post([FromBody] Conflict value)
+        public void Post([FromBody] Crew value)
         {
             cl.Create(value);
         }
 
-        // PUT /conflict
+        // PUT /crew
         [HttpPut("{id}")]
-        public void Put([FromBody] Conflict value)
+        public void Put([FromBody] Crew value)
         {
             cl.Update(value);
         }
 
-        // DELETE /conflict/5
+
+        // DELETE /crew/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
             cl.Delete(id);
         }
-
     }
 }

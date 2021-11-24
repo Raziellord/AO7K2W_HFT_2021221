@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace AO7K2W_HFT_2021221.Models
@@ -32,6 +33,7 @@ namespace AO7K2W_HFT_2021221.Models
         public int TankId { get; set; }
            
         [NotMapped]
+        [JsonIgnore]
         public virtual Tank Tank { get; set; }
 
     }
