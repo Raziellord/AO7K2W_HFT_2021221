@@ -17,7 +17,15 @@ namespace AO7K2W_HFT_2021221.Logic
         }
         public void Create(Tank tank)
         {
-            tankRepo.Create(tank);
+            if (tank.Nickname != null || tank.Nickname != "" || tank.StartOfService > DateTime.Parse("1800.01.01"))
+            {
+                tankRepo.Create(tank);
+            }
+            else
+            {
+                throw new ArgumentException("Please check if you have given the correct data for : Nickname & StartOfService!");
+            }
+            
         }
 
         public void Delete(int id)

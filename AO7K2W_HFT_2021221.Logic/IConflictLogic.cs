@@ -14,5 +14,10 @@ namespace AO7K2W_HFT_2021221.Logic
         IEnumerable<Conflict> ReadAll();
         Conflict Read(int id);
         void Update(Conflict conflict);
+        IEnumerable<Conflict> ConflictsWhereAvgEliminationOver100();
+        IEnumerable<Conflict> ConflictsWhereAvgCrewAgeOver30();
+        IEnumerable<Conflict> ConflictsWhereTankHasRadioman();
+        IEnumerable<Conflict> ConflictsWhereTankServiceStartAvereageOver1950();
+        IEnumerable<Conflict> ConflictsWhereGeneralMajorParticipated();
     }
 }

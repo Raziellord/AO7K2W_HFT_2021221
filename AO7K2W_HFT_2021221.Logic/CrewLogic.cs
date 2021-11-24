@@ -17,7 +17,14 @@ namespace AO7K2W_HFT_2021221.Logic
         }
         public void Create(Crew crew)
         {
-            crewRepo.Create(crew);
+            if(crew.Age > 1 || crew.Name != null || crew.Name != "")
+            {
+                crewRepo.Create(crew);
+            }
+            else
+            {
+                throw new ArgumentException("Please check if you have given correct data for : Age & Name!");
+            }
         }
 
         public void Delete(int id)

@@ -61,9 +61,6 @@ namespace AO7K2W_HFT_2021221.Test
             }.AsQueryable();
 
             mockTankRepo.Setup((t) => t.ReadAll()).Returns(tanks);
-            
-
-
             tl = new TankLogic(mockTankRepo.Object);
         }
 

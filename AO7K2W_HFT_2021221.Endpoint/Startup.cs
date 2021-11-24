@@ -1,3 +1,6 @@
+using AO7K2W_HFT_2021221.Data;
+using AO7K2W_HFT_2021221.Logic;
+using AO7K2W_HFT_2021221.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -16,6 +19,14 @@ namespace AO7K2W_HFT_2021221.Endpoint
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllers();
+            services.AddTransient<IConflictLogic, ConflictLogic>();
+            services.AddTransient<ITankLogic, TankLogic>();
+            services.AddTransient<ICrewLogic, CrewLogic>();
+            services.AddTransient<IConflictRepository, ConflictRepository>();
+            services.AddTransient<ITankRepository, TankRepository>();
+            services.AddTransient<ICrewRepository, CrewRepository>();
+            services.AddTransient<TankDbContext, TankDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -30,10 +41,7 @@ namespace AO7K2W_HFT_2021221.Endpoint
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllers();
             });
         }
     }

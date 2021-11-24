@@ -17,7 +17,15 @@ namespace AO7K2W_HFT_2021221.Logic
         }
         public void Create(Conflict conflict)
         {
-            conflictRepo.Create(conflict);
+            if (conflict.NameOfConflict != null || conflict.NameOfConflict != "")
+            {
+                conflictRepo.Create(conflict);
+            }
+            else
+            {
+                throw new ArgumentException("Invalid Name! Please give a name.");
+            }
+            
         }
 
         public void Delete(int id)
