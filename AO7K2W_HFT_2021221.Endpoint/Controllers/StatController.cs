@@ -85,7 +85,7 @@ namespace AO7K2W_HFT_2021221.Endpoint.Controllers
             return tl.TankAverageStartOfServiceByConflict();
         }
         //GET: /stat/tanksfromconflictswithoneorlesscasusalties
-        //NEM JÓ valamiért
+        //WORKS
         [HttpGet]
         public IEnumerable<Tank> TanksFromConflictsWithOneOrLessCasualties()
         {

@@ -33,6 +33,10 @@ namespace AO7K2W_HFT_2021221.Models
         {
             Tanks = new HashSet<Tank>();
         }
-        
+
+        public override string ToString()
+        {
+            return "Name of conflict: " + NameOfConflict + "\n" + "Date of conflict:" + DateOfConflict.ToString();
+        }
     }
 }

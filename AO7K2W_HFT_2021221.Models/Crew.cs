@@ -36,5 +36,10 @@ namespace AO7K2W_HFT_2021221.Models
         [JsonIgnore]
         public virtual Tank Tank { get; set; }
 
+        public override string ToString()
+        {
+            return "Name: " + Name + "\n" + "Profession: " + Profession + "\n" + "Age: " + Age.ToString() + "\n" +
+                "Rank: " + Rank;
+        }
     }
 }

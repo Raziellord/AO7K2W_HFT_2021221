@@ -72,7 +72,7 @@ namespace AO7K2W_HFT_2021221.Client
             response.EnsureSuccessStatusCode();
         }
 
-        public void Delete(int id, string endpoint)
+        public void Delete<T>(int id, string endpoint)
         {
             HttpResponseMessage response =
                 client.DeleteAsync(endpoint + "/" + id.ToString()).GetAwaiter().GetResult();
