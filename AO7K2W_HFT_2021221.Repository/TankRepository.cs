@@ -45,7 +45,6 @@ namespace AO7K2W_HFT_2021221.Repository
             oldtank.StartOfService = tank.StartOfService;
 
             db.SaveChanges();
-
         }
     }
 }
