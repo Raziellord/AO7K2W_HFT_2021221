@@ -318,7 +318,7 @@ namespace AO7K2W_HFT_2021221.Client
             }
             else
             {
-                Console.WriteLine("You probably gave too many  or to few parameters, please check it again.");
+                Console.WriteLine("You probably gave too many or too few parameters, please check it again.");
             }
 
             Console.ReadLine();
@@ -329,7 +329,7 @@ namespace AO7K2W_HFT_2021221.Client
             Console.Clear();
             var tank = new Tank();
             Console.WriteLine("Please give the parameters to the Tank separated by #-s!");
-            Console.WriteLine("You most provide the following parameters: \nID of conflict, Model of the tank, Crew space, Start of service, ");
+            Console.WriteLine("You most provide the following parameters: \nID of Conflict, Model of the tank, Crew space, Start of service, ");
             Console.WriteLine("Other optional parameters: Nickname, Eliminations");
             string line = Console.ReadLine();
             string[] lines = line.Split('#');

@@ -28,6 +28,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Others", "Others", "{602880
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AO7K2W_HFT_2021221.WpfClient", "AO7K2W_HFT_2021221.WpfClient\AO7K2W_HFT_2021221.WpfClient.csproj", "{1ECC447A-CE72-4414-9F47-7326804A4273}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -62,6 +64,10 @@ Global
 		{0C9FAC8F-4990-4A7E-BFD8-84B325AEFA92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C9FAC8F-4990-4A7E-BFD8-84B325AEFA92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C9FAC8F-4990-4A7E-BFD8-84B325AEFA92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ECC447A-CE72-4414-9F47-7326804A4273}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ECC447A-CE72-4414-9F47-7326804A4273}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ECC447A-CE72-4414-9F47-7326804A4273}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ECC447A-CE72-4414-9F47-7326804A4273}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,6 +80,7 @@ Global
 		{ED618C27-0515-45B4-B04D-527A85C379D0} = {58E4C3AD-5144-4DEC-86D1-B6BE12F1CE22}
 		{AF6ACEED-D84F-4E81-841D-3E2B8F48C22D} = {58E4C3AD-5144-4DEC-86D1-B6BE12F1CE22}
 		{0C9FAC8F-4990-4A7E-BFD8-84B325AEFA92} = {58E4C3AD-5144-4DEC-86D1-B6BE12F1CE22}
+		{1ECC447A-CE72-4414-9F47-7326804A4273} = {815B98F8-FC4C-4DED-9FE6-9E790B83B14B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D74D28EB-6E2D-4A58-A4C2-641B01711A0A}
