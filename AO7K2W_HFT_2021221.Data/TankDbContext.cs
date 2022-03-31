@@ -44,6 +44,8 @@ namespace AO7K2W_HFT_2021221.Data
            .HasForeignKey(tank => tank.ConflictId)
            .OnDelete(DeleteBehavior.Cascade));
 
+            
+
             //ConflictId#NameOfConflict#DateOfConflictYYYY*MM*DD format#Casualties#Winner#
             modelBuilder.Entity<Conflict>().HasData(new Conflict[]
             {

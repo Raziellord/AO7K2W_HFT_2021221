@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AO7K2W_HFT_2021221.WpfClient"
         mc:Ignorable="d"
-        Title="Conflict Editor" Height="450" Width="800">
+        Title="Conflict Editor" Height="550" Width="1050">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
@@ -18,7 +18,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding NameOfConflict}"/>
-                    
+
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
@@ -35,9 +35,9 @@
             <Button Content="Delete Conflict" Command="{Binding DeleteConflictCommand}" Margin="10" Padding="10"/>
             <Button Content="Update Conflict" Command="{Binding UpdateConflictCommand}" Margin="10" Padding="10"/>
         </StackPanel>
-        
-        
-        
-        
+
+
+
+
     </Grid>
 </Window>

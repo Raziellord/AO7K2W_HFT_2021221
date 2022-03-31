@@ -27,6 +27,7 @@ namespace AO7K2W_HFT_2021221.Repository.GenericRepository
         public void Delete(int id)
         {
             ctx.Set<T>().Remove(Read(id));
+            ctx.SaveChanges();
         }
         public abstract T Read(int id);
         public abstract void Update(T item);
