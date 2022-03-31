@@ -13,7 +13,7 @@ namespace AO7K2W_HFT_2021221.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int ConflictId { get; set; }
 
         [MaxLength(100)]
         [Required]
@@ -31,6 +31,16 @@ namespace AO7K2W_HFT_2021221.Models
 
         public Conflict()
         {
+            Tanks = new HashSet<Tank>();
+        }
+        public Conflict(string line)
+        {
+            string[] split = line.Split('#');
+            ConflictId = int.Parse(split[0]);
+            NameOfConflict = split[1];
+            DateOfConflict = DateTime.Parse(split[2].Replace('*', '.'));
+            Casualties = int.Parse(split[3]);
+            Winner = split[4];
             Tanks = new HashSet<Tank>();
         }
 

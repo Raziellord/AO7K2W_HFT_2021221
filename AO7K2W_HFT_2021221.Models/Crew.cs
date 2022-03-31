@@ -14,7 +14,7 @@ namespace AO7K2W_HFT_2021221.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int CrewId { get; set; }
         
         [MaxLength(50)]
         [Required]
@@ -32,10 +32,23 @@ namespace AO7K2W_HFT_2021221.Models
         [ForeignKey(nameof(Tank))]
         public int TankId { get; set; }
            
-        [NotMapped]
         [JsonIgnore]
         public virtual Tank Tank { get; set; }
 
+        public Crew()
+        {
+
+        }
+        public Crew(string line)
+        {
+            string[] split = line.Split('#');
+            CrewId = int.Parse(split[0]);
+            Name = split[1];
+            Profession = split[2];
+            Age = int.Parse(split[3]);
+            Rank = split[4];
+            TankId = int.Parse(split[5]);
+        }
         public override string ToString()
         {
             return "Name: " + Name + "\n" + "Profession: " + Profession + "\n" + "Age: " + Age.ToString() + "\n" +

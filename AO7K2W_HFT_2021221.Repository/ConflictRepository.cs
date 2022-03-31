@@ -1,5 +1,7 @@
 ﻿using AO7K2W_HFT_2021221.Data;
 using AO7K2W_HFT_2021221.Models;
+using AO7K2W_HFT_2021221.Repository.GenericRepository;
+using AO7K2W_HFT_2021221.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,45 +10,32 @@ using System.Threading.Tasks;
 
 namespace AO7K2W_HFT_2021221.Repository
 {
-    public class ConflictRepository : IConflictRepository
+    public class ConflictRepository : Repository<Conflict>, IRepository<Conflict>
     {
-        TankDbContext db;
-        public ConflictRepository(TankDbContext db)
+        public ConflictRepository(TankDbContext ctx) :base(ctx)
         {
-            this.db = db;
         }
 
-        public void Create(Conflict conflict)
+        public override Conflict Read(int id)
         {
-            db.Conflicts.Add(conflict);
-            db.SaveChanges();
-        }
-        public Conflict Read(int id)
-        {
-            return db.Conflicts.FirstOrDefault(t => t.Id == id);
-        }
-        public IQueryable<Conflict> ReadAll()
-        {
-            return db.Conflicts;
+            return ctx.Conflicts.FirstOrDefault(conflict => conflict.ConflictId == id);
         }
 
-        public void Delete(int id)
+        public override void Update(Conflict item)
         {
-            db.Remove(Read(id));
-            db.SaveChanges();
-        }
-
-        public void Update(Conflict conflict)
-        {
-            var oldconflict = Read(conflict.Id);
-            oldconflict.NameOfConflict = conflict.NameOfConflict;
-            oldconflict.DateOfConflict = conflict.DateOfConflict;
-            oldconflict.Casualties = conflict.Casualties;
-            oldconflict.Winner = conflict.Winner;
-
-
-            db.SaveChanges();
-
+            var old = Read(item.ConflictId);
+            if (old == null)
+            {
+                throw new ArgumentException("Item does not exist...");
+            }
+            foreach (var prop in old.GetType().GetProperties())
+            {
+                if (prop.GetAccessors().FirstOrDefault(t => t.IsVirtual) == null)
+                {
+                    prop.SetValue(old, prop.GetValue(item));
+                }
+            }
+            ctx.SaveChanges();
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using AO7K2W_HFT_2021221.Data;
 using AO7K2W_HFT_2021221.Models;
+using AO7K2W_HFT_2021221.Repository.GenericRepository;
+using AO7K2W_HFT_2021221.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,44 +10,33 @@ using System.Threading.Tasks;
 
 namespace AO7K2W_HFT_2021221.Repository
 {
-    public class CrewRepository : ICrewRepository
+    public class CrewRepository : Repository<Crew>, IRepository<Crew>
     {
-        TankDbContext db;
-        public CrewRepository(TankDbContext db)
+
+        public CrewRepository(TankDbContext ctx) : base(ctx)
         {
-            this.db = db;
+        }
+        
+        public override Crew Read(int id)
+        {
+            return ctx.Crews.FirstOrDefault(crew => crew.CrewId == id);
         }
 
-        public void Create(Crew crew)
+        public override void Update(Crew item)
         {
-            db.Crews.Add(crew);
-            db.SaveChanges();
-        }
-        public Crew Read(int id)
-        {
-            return db.Crews.FirstOrDefault(t => t.Id == id);
-        }
-        public IQueryable<Crew> ReadAll()
-        {
-            return db.Crews;
-        }
-
-        public void Delete(int id)
-        {
-            db.Remove(Read(id));
-            db.SaveChanges();
-        }
-
-        public void Update(Crew crew)
-        {
-            var oldcrew = Read(crew.Id);
-            oldcrew.Name = crew.Name;
-            oldcrew.Profession = crew.Profession;
-            oldcrew.Age = crew.Age;
-            oldcrew.Rank = crew.Rank;
-            oldcrew.TankId = crew.TankId;
-            db.SaveChanges();
-
+            var old = Read(item.CrewId);
+            if (old == null)
+            {
+                throw new ArgumentException("Item does not exist..");
+            }
+            foreach (var prop in old.GetType().GetProperties())
+            {
+                if (prop.GetAccessors().FirstOrDefault(t => t.IsVirtual) == null)
+                {
+                    prop.SetValue(old, prop.GetValue(item));
+                }
+            }
+            ctx.SaveChanges();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace AO7K2W_HFT_2021221.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int TankId { get; set; }
 
         [MaxLength(50)]
         [Required]
@@ -30,18 +30,31 @@ namespace AO7K2W_HFT_2021221.Models
         [Required]
         public DateTime StartOfService { get; set; }
 
-        
-        [NotMapped]
         [JsonIgnore]
         public virtual Conflict Conflict { get; set; }
 
         [ForeignKey(nameof(Conflict))]
         public int ConflictId { get; set; }
-        [NotMapped]
+
+
+        [JsonIgnore]
         public virtual ICollection<Crew> Crews { get; set; }
 
         public Tank()
         {
+            Crews = new HashSet<Crew>();
+        }
+
+        public Tank(string line)
+        {
+            string[] split = line.Split('#');
+            TankId = int.Parse(split[0]);
+            Model = split[1];
+            Nickname = split[2];
+            Eliminations = int.Parse(split[3]);
+            CrewSpace = int.Parse(split[4]);
+            StartOfService = DateTime.Parse(split[5].Replace('*', '.'));
+            ConflictId = int.Parse(split[6]);
             Crews = new HashSet<Crew>();
         }
 
