@@ -21,7 +21,7 @@ namespace AO7K2W_HFT_2021221.WpfClient
             get { return errorMessage; }
             set { SetProperty(ref errorMessage, value); }
         }
-        public RestCollection<Conflict> Conflicts_ { get; set; }
+        public RestCollection<Conflict> Conflicts { get; set; }
 
         private Conflict selectedConflict;
 
@@ -35,7 +35,7 @@ namespace AO7K2W_HFT_2021221.WpfClient
                     selectedConflict = new Conflict()
                     {
                         NameOfConflict = value.NameOfConflict,
-                        Id  = value.Id
+                        ConflictId  = value.ConflictId
                     };
                     OnPropertyChanged();
                     (DeleteConflictCommand as RelayCommand).NotifyCanExecuteChanged();
@@ -63,11 +63,11 @@ namespace AO7K2W_HFT_2021221.WpfClient
             
             if (!IsInDesignMode)
             {
-                Conflicts_ = new RestCollection<Conflict>("http://localhost:26569/", "conflict");
+                Conflicts = new RestCollection<Conflict>("http://localhost:26569/", "conflict");
 
                 CreateConflictCommand = new RelayCommand(() =>
                 {
-                    Conflicts_.Add(new Conflict()
+                    Conflicts.Add(new Conflict()
                     {
                         NameOfConflict = SelectedConflict.NameOfConflict,
                         DateOfConflict = SelectedConflict.DateOfConflict
@@ -75,7 +75,7 @@ namespace AO7K2W_HFT_2021221.WpfClient
                 });
                 DeleteConflictCommand = new RelayCommand(() =>
                 {
-                    Conflicts_.Delete(SelectedConflict.Id);
+                    Conflicts.Delete(SelectedConflict.ConflictId);
                 },
                 () =>
                 {
@@ -85,7 +85,7 @@ namespace AO7K2W_HFT_2021221.WpfClient
                 {
                     try
                     {
-                        Conflicts_.Update(SelectedConflict);
+                        Conflicts.Update(SelectedConflict);
                     }
                     catch (ArgumentException ex)
                     {

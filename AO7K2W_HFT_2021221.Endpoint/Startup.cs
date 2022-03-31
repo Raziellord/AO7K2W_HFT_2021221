@@ -1,6 +1,8 @@
 using AO7K2W_HFT_2021221.Data;
 using AO7K2W_HFT_2021221.Logic;
+using AO7K2W_HFT_2021221.Models;
 using AO7K2W_HFT_2021221.Repository;
+using AO7K2W_HFT_2021221.Repository.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -23,9 +25,9 @@ namespace AO7K2W_HFT_2021221.Endpoint
             services.AddTransient<IConflictLogic, ConflictLogic>();
             services.AddTransient<ITankLogic, TankLogic>();
             services.AddTransient<ICrewLogic, CrewLogic>();
-            services.AddTransient<IConflictRepository, ConflictRepository>();
-            services.AddTransient<ITankRepository, TankRepository>();
-            services.AddTransient<ICrewRepository, CrewRepository>();
+            services.AddTransient<IRepository<Conflict>, ConflictRepository>();
+            services.AddTransient<IRepository<Tank>, TankRepository>();
+            services.AddTransient<IRepository<Crew>, CrewRepository>();
             services.AddTransient<TankDbContext, TankDbContext>();
         }
 

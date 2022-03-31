@@ -1,5 +1,6 @@
 ﻿using AO7K2W_HFT_2021221.Models;
 using AO7K2W_HFT_2021221.Repository;
+using AO7K2W_HFT_2021221.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,8 @@ namespace AO7K2W_HFT_2021221.Logic
 {
     public class ConflictLogic : IConflictLogic
     {
-        IConflictRepository conflictRepo;
-        public ConflictLogic(IConflictRepository conflictRepo)
+        IRepository<Conflict> conflictRepo;
+        public ConflictLogic(IRepository<Conflict> conflictRepo)
         {
             this.conflictRepo = conflictRepo;
         }

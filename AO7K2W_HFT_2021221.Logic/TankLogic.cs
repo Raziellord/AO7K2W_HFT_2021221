@@ -1,5 +1,6 @@
 ﻿using AO7K2W_HFT_2021221.Models;
 using AO7K2W_HFT_2021221.Repository;
+using AO7K2W_HFT_2021221.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,8 @@ namespace AO7K2W_HFT_2021221.Logic
 {
     public class TankLogic : ITankLogic
     {
-        ITankRepository tankRepo;
-        public TankLogic(ITankRepository tankRepo)
+        IRepository<Tank> tankRepo;
+        public TankLogic(IRepository<Tank> tankRepo)
         {
             this.tankRepo = tankRepo;
         }

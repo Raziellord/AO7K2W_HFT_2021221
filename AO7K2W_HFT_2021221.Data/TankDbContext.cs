@@ -84,12 +84,12 @@ namespace AO7K2W_HFT_2021221.Data
             //-------------------------------------CREWS ---------------------------------------------------
             modelBuilder.Entity<Crew>().HasData(new Crew[]
             {
-                new Crew("ID#NAME#PROFE#AGE#RANK#TankID"),
+                
                 //1
                 new Crew("1#George Hiller#Tank Commander#23#Commander#1"),
                 new Crew("2#Churchill Winston#Gunner#57#Major#1"),
                 new Crew("3#Peter Pettigrew#Loader#12#Lieutenant#1"),
-                new Crew("4#Harry Potter#Radioman#Sergeant#Sergeant#1"),
+                new Crew("4#Harry Potter#Radioman#27#Sergeant#1"),
                 new Crew("5#James Cameron#Driver#25#Private#1"),
 
                 //2
