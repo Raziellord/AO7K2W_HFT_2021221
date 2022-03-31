@@ -35,6 +35,9 @@ namespace AO7K2W_HFT_2021221.WpfClient
                     selectedConflict = new Conflict()
                     {
                         NameOfConflict = value.NameOfConflict,
+                        DateOfConflict =value.DateOfConflict,
+                        Casualties = value.Casualties,
+                        Winner = value.Winner,
                         ConflictId  = value.ConflictId
                     };
                     OnPropertyChanged();
@@ -70,9 +73,12 @@ namespace AO7K2W_HFT_2021221.WpfClient
                     Conflicts.Add(new Conflict()
                     {
                         NameOfConflict = SelectedConflict.NameOfConflict,
-                        DateOfConflict = SelectedConflict.DateOfConflict
+                        DateOfConflict = SelectedConflict.DateOfConflict,
+                        Casualties = SelectedConflict.Casualties,
+                        Winner = SelectedConflict.Winner
                     });
                 });
+
                 DeleteConflictCommand = new RelayCommand(() =>
                 {
                     Conflicts.Delete(SelectedConflict.ConflictId);
@@ -81,6 +87,7 @@ namespace AO7K2W_HFT_2021221.WpfClient
                 {
                     return SelectedConflict != null;
                 });
+
                 UpdateConflictCommand = new RelayCommand(() =>
                 {
                     try

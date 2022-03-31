@@ -21,7 +21,6 @@ namespace AO7K2W_HFT_2021221.Models
 
         [Required]
         public DateTime DateOfConflict { get; set; }
-
         public int Casualties { get; set; }
 
         public string Winner { get; set; }

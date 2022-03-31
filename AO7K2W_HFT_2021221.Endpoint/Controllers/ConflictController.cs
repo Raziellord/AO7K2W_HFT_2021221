@@ -21,37 +21,38 @@ namespace AO7K2W_HFT_2021221.Endpoint.Controllers
         }
         // GET: /conflict
         [HttpGet]
-        public IEnumerable<Conflict> Get()
+        public IEnumerable<Conflict> ReadAll()
         {
             return cl.ReadAll();
         }
 
         // GET conflict/5
         [HttpGet("{id}")]
-        public Conflict Get(int id)
+        public Conflict Read(int id)
         {
             return cl.Read(id);
         }
 
         // POST /conflict
         [HttpPost]
-        public void Post([FromBody] Conflict value)
+        public void Create([FromBody] Conflict value)
         {
             cl.Create(value);
         }
 
         // PUT /conflict
-        [HttpPut("{id}")]
+        [HttpPut]
         public void Put([FromBody] Conflict value)
         {
-            cl.Update(value);
+            this.cl.Update(value);
         }
 
         // DELETE /conflict/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            cl.Delete(id);
+            var conflictToDelete = this.cl.Read(id);
+            this.cl.Delete(id);
         }
 
     }

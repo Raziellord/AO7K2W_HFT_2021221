@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace AO7K2W_HFT_2021221.Models
 {
     [Table("Tanks")]
-    public class Tank
+    public class Tank 
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -58,7 +58,7 @@ namespace AO7K2W_HFT_2021221.Models
             Crews = new HashSet<Crew>();
         }
 
-        public override string ToString()
+        public  string ToString()
         {
             return "Model: " + Model + "\n" + "Start of service: " + StartOfService.ToString() + " \n" + "Crew space: " + CrewSpace;
         }

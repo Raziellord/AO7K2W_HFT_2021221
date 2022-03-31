@@ -16,7 +16,7 @@ namespace AO7K2W_HFT_2021221.WpfClient
     {
         HttpClient client;
 
-        public RestService(string baseurl, string pingableEndpoint = "swagger")
+        public RestService(string baseurl, string pingableEndpoint = "conflict")
         {
             bool isOk = false;
             do

@@ -18,6 +18,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Label Content="{Binding NameOfConflict}"/>
+                    
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
@@ -25,9 +26,13 @@
             <Label Content="Name" Background="LightBlue" Padding="10"/>
             <TextBox Text="{Binding SelectedConflict.NameOfConflict}" Padding="10" />
             <Label Content="Date" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedConflict.DateOfConflict}" Padding="10" Margin="0,0,0,50"/>
+            <TextBox Text="{Binding SelectedConflict.DateOfConflict, StringFormat=d}" Padding="10"/>
+            <Label Content="Casualties" Background="LightBlue" Padding="10"/>
+            <TextBox Text="{Binding SelectedConflict.Casualties}" Padding="10"/>
+            <Label Content="Winner" Background="LightBlue" Padding="10"/>
+            <TextBox Text="{Binding SelectedConflict.Winner}" Padding="10"/>
             <Button Content="Create Conflict" Command="{Binding CreateConflictCommand}" Margin="10" Padding="10"/>
-            <Button Content="DeleteConflict" Command="{Binding DeleteConflictCommand}" Margin="10" Padding="10"/>
+            <Button Content="Delete Conflict" Command="{Binding DeleteConflictCommand}" Margin="10" Padding="10"/>
             <Button Content="Update Conflict" Command="{Binding UpdateConflictCommand}" Margin="10" Padding="10"/>
         </StackPanel>
         

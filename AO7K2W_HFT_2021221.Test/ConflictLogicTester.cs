@@ -4,6 +4,7 @@ using System.Linq;
 using AO7K2W_HFT_2021221.Logic;
 using AO7K2W_HFT_2021221.Models;
 using AO7K2W_HFT_2021221.Repository;
+using AO7K2W_HFT_2021221.Repository.Interfaces;
 using Moq;
 using NUnit.Framework;
 
@@ -18,13 +19,13 @@ namespace AO7K2W_HFT_2021221.Test
         [SetUp]
         public void Init()
         {
-            var mockConflictRepository = new Mock<IConflictRepository>();
+            var mockConflictRepository = new Mock<IRepository<Conflict>>();
 
-            Crew fakeCrew = new Crew() { Id = 49, Name = "Himmler Goebbels", Age = 69, Profession = "Tank Commander", Rank = "General Major" };
-            Crew fakeCrew2 = new Crew() { Id = 55, Name = "Caesar Schweinitz", Age = 46, Profession = "Radioman", Rank = "Lieutenant"};
+            Crew fakeCrew = new Crew() { CrewId = 49, Name = "Himmler Goebbels", Age = 69, Profession = "Tank Commander", Rank = "General Major" };
+            Crew fakeCrew2 = new Crew() { CrewId = 55, Name = "Caesar Schweinitz", Age = 46, Profession = "Radioman", Rank = "Lieutenant"};
             Tank fakeTank = new Tank()
             {
-                Id = 9,
+                TankId = 9,
                 StartOfService = DateTime.Parse("1951.02.17"),
                 CrewSpace = 5,
                 Eliminations = 111,
@@ -43,8 +44,8 @@ namespace AO7K2W_HFT_2021221.Test
             
             var conflicts = new List<Conflict>()
             {
-                new Conflict() { Id = 1, NameOfConflict = "Russian Conflict", Casualties = 10000, DateOfConflict = DateTime.Parse("2001.01.13"), Winner = "Russia",Tanks = tanks },
-                new Conflict() { Id = 2, NameOfConflict = "European Conflict", Casualties = 4958851, DateOfConflict = DateTime.Parse("1975.05.15"), Winner = "Germany",Tanks = tanks }
+                new Conflict() { ConflictId = 1, NameOfConflict = "Russian Conflict", Casualties = 10000, DateOfConflict = DateTime.Parse("2001.01.13"), Winner = "Russia",Tanks = tanks },
+                new Conflict() { ConflictId = 2, NameOfConflict = "European Conflict", Casualties = 4958851, DateOfConflict = DateTime.Parse("1975.05.15"), Winner = "Germany",Tanks = tanks }
             }.AsQueryable();
 
             mockConflictRepository.Setup((t) => t.ReadAll()).Returns(conflicts);

@@ -4,6 +4,7 @@ using System.Linq;
 using AO7K2W_HFT_2021221.Logic;
 using AO7K2W_HFT_2021221.Models;
 using AO7K2W_HFT_2021221.Repository;
+using AO7K2W_HFT_2021221.Repository.Interfaces;
 using Moq;
 using NUnit.Framework;
 
@@ -18,14 +19,14 @@ namespace AO7K2W_HFT_2021221.Test
         [SetUp]
         public void Init()
         {
-            var mockTankRepo = new Mock<ITankRepository>();
+            var mockTankRepo = new Mock<IRepository<Tank>>();
 
             Conflict fakeConflict = new Conflict();
-            fakeConflict.Id = 1;
+            fakeConflict.ConflictId = 1;
             fakeConflict.NameOfConflict = "Conflict of Test";
             fakeConflict.Casualties = 1;
 
-            Crew fakeCrew = new Crew() { Id = 9, Name = "Wolf Steven", Age = 44, Profession = "Radioman", Rank = "Major" };
+            Crew fakeCrew = new Crew() { CrewId = 9, Name = "Wolf Steven", Age = 44, Profession = "Radioman", Rank = "Major" };
             List<Crew> crews = new List<Crew>();
             crews.Add(fakeCrew);
 
@@ -33,8 +34,8 @@ namespace AO7K2W_HFT_2021221.Test
             {
                  new Tank()
                 {
-                Id = 1,
-                ConflictId = fakeConflict.Id,
+                TankId = 1,
+                ConflictId = fakeConflict.ConflictId,
                 StartOfService = DateTime.Parse("1969.05.11"),
                 CrewSpace = 4,
                 Eliminations = 41,
@@ -47,8 +48,8 @@ namespace AO7K2W_HFT_2021221.Test
 
                  new Tank()
                 {
-                Id = 2,
-                ConflictId = fakeConflict.Id,
+                TankId = 2,
+                ConflictId = fakeConflict.ConflictId,
                 StartOfService = DateTime.Parse("1960.12.24"),
                 CrewSpace = 9,
                 Eliminations = 1000,
