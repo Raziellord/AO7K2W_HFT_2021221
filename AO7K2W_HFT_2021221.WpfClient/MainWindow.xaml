@@ -5,39 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AO7K2W_HFT_2021221.WpfClient"
         mc:Ignorable="d"
-        Title="Conflict Editor" Height="550" Width="1050">
+        Title="Conflict Editor" Height="600" Width="1050">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <ListBox ItemsSource="{Binding Conflicts}" SelectedItem="{Binding SelectedConflict}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Label Content="{Binding NameOfConflict}"/>
+        <TabControl>
+            <TabItem Header="Conflicts">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox ItemsSource="{Binding Conflicts}" SelectedItem="{Binding SelectedConflict}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding NameOfConflict}"/>
 
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <StackPanel Grid.Column="1" >
-            <Label Content="Name" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedConflict.NameOfConflict}" Padding="10" />
-            <Label Content="Date" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedConflict.DateOfConflict, StringFormat=d}" Padding="10"/>
-            <Label Content="Casualties" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedConflict.Casualties}" Padding="10"/>
-            <Label Content="Winner" Background="LightBlue" Padding="10"/>
-            <TextBox Text="{Binding SelectedConflict.Winner}" Padding="10"/>
-            <Button Content="Create Conflict" Command="{Binding CreateConflictCommand}" Margin="10" Padding="10"/>
-            <Button Content="Delete Conflict" Command="{Binding DeleteConflictCommand}" Margin="10" Padding="10"/>
-            <Button Content="Update Conflict" Command="{Binding UpdateConflictCommand}" Margin="10" Padding="10"/>
-        </StackPanel>
-
-
-
-
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <StackPanel Grid.Column="1" >
+                        <Label Content="Name" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedConflict.NameOfConflict}" Padding="10" />
+                        <Label Content="Date" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedConflict.DateOfConflict, StringFormat=d}" Padding="10"/>
+                        <Label Content="Casualties" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedConflict.Casualties}" Padding="10"/>
+                        <Label Content="Winner" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedConflict.Winner}" Padding="10"/>
+                        <Button Content="Create Conflict" Command="{Binding CreateConflictCommand}" Margin="10" Padding="10"/>
+                        <Button Content="Delete Conflict" Command="{Binding DeleteConflictCommand}" Margin="10" Padding="10"/>
+                        <Button Content="Update Conflict" Command="{Binding UpdateConflictCommand}" Margin="10" Padding="10"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Tanks">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox ItemsSource="{Binding Tanks}" SelectedItem="{Binding SelectedTank}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{Binding Model}"/>
+                                    <Label Content="----"/>
+                                    <Label Content="{Binding Nickname}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <StackPanel Grid.Column="1" >
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Model" Background="LightBlue" Padding="10"/>
+                            <TextBox Text="{Binding SelectedTank.Model}" Padding="10" Width="150"/>
+                            <Label Content="Nickname" Background="LightBlue" Padding="10"/>
+                            <TextBox Text="{Binding SelectedTank.Nickname}" Padding="10" Width="250"/>
+                        </StackPanel>
+                        <Label Content="Eliminations" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedTank.Eliminations}" Padding="10" />
+                        <Label Content="Date" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedTank.StartOfService, StringFormat=d}" Padding="10"/>
+                        <Label Content="Crew Space" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedTank.CrewSpace}" Padding="10"/>
+                        <Label Content="Conflict" Background="LightBlue" Padding="10"/>
+                        <TextBox Text="{Binding SelectedTank.ConflictId}" Padding="10"/>
+                        <Button Content="Create Tank" Command="{Binding CreateTankCommand}" Margin="10" Padding="10"/>
+                        <Button Content="Delete Tank" Command="{Binding DeleteTankCommand}" Margin="10" Padding="10"/>
+                        <Button Content="Update Tank" Command="{Binding UpdateTankCommand}" Margin="10" Padding="10"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

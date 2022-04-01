@@ -32,6 +32,7 @@ namespace AO7K2W_HFT_2021221.Models
 
         [JsonIgnore]
         public virtual Conflict Conflict { get; set; }
+        
 
         [ForeignKey(nameof(Conflict))]
         public int ConflictId { get; set; }

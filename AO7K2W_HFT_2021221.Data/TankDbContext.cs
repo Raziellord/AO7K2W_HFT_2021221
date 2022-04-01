@@ -67,7 +67,7 @@ namespace AO7K2W_HFT_2021221.Data
 
 
                 new Tank("5#T34-85#Strong Ivan#51#5#1942*09*01#1"),
-                new Tank("6#T34(1941#Vlad#32#4#1941*06*07#1"),
+                new Tank("6#T34(1941)#Vlad#32#4#1941*06*07#1"),
 
                 new Tank("7#Panther D#Punther#21#6#1951*03*12#1"),
                 new Tank("8#Panther A#Zeskie#111#6#1951*03*12#1"),
