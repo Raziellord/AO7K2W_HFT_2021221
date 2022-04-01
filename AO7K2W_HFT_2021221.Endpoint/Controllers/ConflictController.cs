@@ -1,6 +1,8 @@
-﻿using AO7K2W_HFT_2021221.Logic;
+﻿using AO7K2W_HFT_2021221.Endpoint.Services;
+using AO7K2W_HFT_2021221.Logic;
 using AO7K2W_HFT_2021221.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +17,12 @@ namespace AO7K2W_HFT_2021221.Endpoint.Controllers
     public class ConflictController : ControllerBase
     {
         IConflictLogic cl;
-        public ConflictController(IConflictLogic cl)
+
+        IHubContext<SignalRHub> hub;
+        public ConflictController(IConflictLogic cl, IHubContext<SignalRHub> hub)
         {
             this.cl = cl;
+            this.hub = hub;
         }
         // GET: /conflict
         [HttpGet]
@@ -38,6 +43,7 @@ namespace AO7K2W_HFT_2021221.Endpoint.Controllers
         public void Create([FromBody] Conflict value)
         {
             cl.Create(value);
+            this.hub.Clients.All.SendAsync("ConflictCreated", value);
         }
 
         // PUT /conflict
@@ -45,6 +51,7 @@ namespace AO7K2W_HFT_2021221.Endpoint.Controllers
         public void Put([FromBody] Conflict value)
         {
             this.cl.Update(value);
+            this.hub.Clients.All.SendAsync("ConflictUpdated", value);
         }
 
         // DELETE /conflict/5
@@ -53,6 +60,7 @@ namespace AO7K2W_HFT_2021221.Endpoint.Controllers
         {
             var conflictToDelete = this.cl.Read(id);
             this.cl.Delete(id);
+            this.hub.Clients.All.SendAsync("ConflictDeleted", conflictToDelete);
         }
 
     }

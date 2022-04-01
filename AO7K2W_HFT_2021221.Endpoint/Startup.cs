@@ -1,4 +1,5 @@
 using AO7K2W_HFT_2021221.Data;
+using AO7K2W_HFT_2021221.Endpoint.Services;
 using AO7K2W_HFT_2021221.Logic;
 using AO7K2W_HFT_2021221.Models;
 using AO7K2W_HFT_2021221.Repository;
@@ -29,6 +30,8 @@ namespace AO7K2W_HFT_2021221.Endpoint
             services.AddTransient<IRepository<Tank>, TankRepository>();
             services.AddTransient<IRepository<Crew>, CrewRepository>();
             services.AddTransient<TankDbContext, TankDbContext>();
+
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +47,7 @@ namespace AO7K2W_HFT_2021221.Endpoint
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<SignalRHub>("/hub");
             });
         }
     }

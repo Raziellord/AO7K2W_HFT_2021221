@@ -66,7 +66,7 @@ namespace AO7K2W_HFT_2021221.WpfClient
             
             if (!IsInDesignMode)
             {
-                Conflicts = new RestCollection<Conflict>("http://localhost:26569/", "conflict");
+                Conflicts = new RestCollection<Conflict>("http://localhost:26569/", "conflict", "hub");
 
                 CreateConflictCommand = new RelayCommand(() =>
                 {
