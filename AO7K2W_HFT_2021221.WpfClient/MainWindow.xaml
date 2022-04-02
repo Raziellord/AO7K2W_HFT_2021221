@@ -5,76 +5,133 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AO7K2W_HFT_2021221.WpfClient"
         mc:Ignorable="d"
-        Title="Conflict Editor" Height="600" Width="1050">
+        Title="WAR EDITOR" Height="800" Width="1050">
     <Window.DataContext>
         <local:MainWindowViewModel/>
     </Window.DataContext>
-    <Grid>
-        <TabControl>
-            <TabItem Header="Conflicts">
+    <Grid Background="Black">
+        <TabControl BorderBrush="Black" Background="Black">
+            <TabItem  Background="Black">
+                <TabItem.Header>
+                    <Grid  >
+                        <Label Content="CONFLICTS"  FontFamily="Britannic Bold" Foreground="Green" FontSize="20" />
+                    </Grid>
+                </TabItem.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <ListBox ItemsSource="{Binding Conflicts}" SelectedItem="{Binding SelectedConflict}">
+                    <ListBox ItemsSource="{Binding Conflicts}" SelectedItem="{Binding SelectedConflict}" Background="Black" BorderBrush="Green" BorderThickness="3" >
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Label Content="{Binding NameOfConflict}"/>
-
+                                <Label Content="{Binding NameOfConflict}" Foreground="Green" FontFamily="Britannic Bold" FontSize="25" BorderBrush="Green" BorderThickness="2"/>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <StackPanel Grid.Column="1" >
-                        <Label Content="Name" Background="LightBlue" Padding="10"/>
-                        <TextBox Text="{Binding SelectedConflict.NameOfConflict}" Padding="10" />
-                        <Label Content="Date" Background="LightBlue" Padding="10"/>
-                        <TextBox Text="{Binding SelectedConflict.DateOfConflict, StringFormat=d}" Padding="10"/>
-                        <Label Content="Casualties" Background="LightBlue" Padding="10"/>
-                        <TextBox Text="{Binding SelectedConflict.Casualties}" Padding="10"/>
-                        <Label Content="Winner" Background="LightBlue" Padding="10"/>
-                        <TextBox Text="{Binding SelectedConflict.Winner}" Padding="10"/>
-                        <Button Content="Create Conflict" Command="{Binding CreateConflictCommand}" Margin="10" Padding="10"/>
-                        <Button Content="Delete Conflict" Command="{Binding DeleteConflictCommand}" Margin="10" Padding="10"/>
-                        <Button Content="Update Conflict" Command="{Binding UpdateConflictCommand}" Margin="10" Padding="10"/>
+                    <StackPanel Grid.Column="1" Background="Black" >
+                        <Label Content="NAME"  Padding="10" Background="Black" Foreground="Green" FontSize="20" FontFamily="Britannic Bold" />
+                        <TextBox Text="{Binding SelectedConflict.NameOfConflict}" Padding="10" Background="LightGray" FontFamily="Britannic Bold" FontSize="15"/>
+                        
+                        <Label Content="DATE MM/DD/YYYY" Background="Black" Foreground="Green" FontSize="20" FontFamily="Britannic Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedConflict.DateOfConflict, StringFormat=d}" Padding="10" Background="LightGray" FontFamily="Britannic Bold" FontSize="15"/>
+                        
+                        <Label Content="CASUALTIES" Background="Black" Foreground="Green" FontSize="20" FontFamily="Britannic Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedConflict.Casualties}" Padding="10" Background="LightGray" FontFamily="Britannic Bold" FontSize="15"/>
+                        
+                        <Label Content="WINNER" Background="Black" Foreground="Green" FontSize="20" FontFamily="Britannic Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedConflict.Winner}" Background="LightGray" FontFamily="Britannic Bold" Padding="10" FontSize="15"/>
+                        
+                        <Button Content="CREATE CONFLICT" Command="{Binding CreateConflictCommand}" Margin="10" Padding="10" Background="DarkRed" Foreground="YellowGreen" FontFamily="Britannic Bold" FontSize="20"/>
+                        <Button Content="DELETE CONFLICT" Command="{Binding DeleteConflictCommand}" Margin="10" Padding="10" Background="DarkRed" Foreground="YellowGreen" FontFamily="Britannic Bold" FontSize="20"/>
+                        <Button Content="UPDATE CONFLICT" Command="{Binding UpdateConflictCommand}" Margin="10" Padding="10" Background="DarkRed" Foreground="YellowGreen" FontFamily="Britannic Bold" FontSize="20"/>
                     </StackPanel>
                 </Grid>
             </TabItem>
-            <TabItem Header="Tanks">
+            <TabItem Background="Black">
+                <TabItem.Header>
+                    <Grid  >
+                        <Label Content="TANKS"  FontFamily="Britannic Bold" Foreground="Green" FontSize="20" />
+                    </Grid>
+                </TabItem.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
-                    <ListBox ItemsSource="{Binding Tanks}" SelectedItem="{Binding SelectedTank}">
+                    <ListBox ItemsSource="{Binding Tanks}" SelectedItem="{Binding SelectedTank}" Background="Black" BorderBrush="Green" BorderThickness="3">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="{Binding Model}"/>
-                                    <Label Content="----"/>
-                                    <Label Content="{Binding Nickname}"/>
+                                <StackPanel Orientation="Horizontal" >
+                                    <Label Content="{Binding Model}" Foreground="Green" FontFamily="Britannic Bold" FontSize="25" BorderBrush="Green" BorderThickness="2"/>
+                                    <Label Content="----" Foreground="Green" FontFamily="Britannic Bold" FontSize="25" />
+                                    <Label Content="{Binding Nickname}" Foreground="Green" FontFamily="Britannic Bold" FontSize="25" BorderBrush="Green" BorderThickness="2"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-                    <StackPanel Grid.Column="1" >
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="Model" Background="LightBlue" Padding="10"/>
-                            <TextBox Text="{Binding SelectedTank.Model}" Padding="10" Width="150"/>
-                            <Label Content="Nickname" Background="LightBlue" Padding="10"/>
-                            <TextBox Text="{Binding SelectedTank.Nickname}" Padding="10" Width="250"/>
+                    <StackPanel Grid.Column="1" Background="Black" >
+                        <StackPanel Orientation="Horizontal" Background="Black" >
+                            <Label Content="MODEL"  Padding="10" Background="Black" Foreground="Green" FontSize="20" FontFamily="Britannic Bold"/>
+                            <TextBox Text="{Binding SelectedTank.Model}" Padding="10" Width="150" Background="LightGray" FontFamily="Britannic Bold" FontSize="15"/>
+                            <Label Content="NICKNAME"  Padding="10" Background="Black" Foreground="Green" FontSize="20" FontFamily="Britannic Bold"/>
+                            <TextBox Text="{Binding SelectedTank.Nickname}" Padding="10" Width="250" Background="LightGray" FontFamily="Britannic Bold" FontSize="15"/>
                         </StackPanel>
-                        <Label Content="Eliminations" Background="LightBlue" Padding="10"/>
-                        <TextBox Text="{Binding SelectedTank.Eliminations}" Padding="10" />
-                        <Label Content="Date" Background="LightBlue" Padding="10"/>
-                        <TextBox Text="{Binding SelectedTank.StartOfService, StringFormat=d}" Padding="10"/>
-                        <Label Content="Crew Space" Background="LightBlue" Padding="10"/>
-                        <TextBox Text="{Binding SelectedTank.CrewSpace}" Padding="10"/>
-                        <Label Content="Conflict" Background="LightBlue" Padding="10"/>
-                        <TextBox Text="{Binding SelectedTank.ConflictId}" Padding="10"/>
-                        <Button Content="Create Tank" Command="{Binding CreateTankCommand}" Margin="10" Padding="10"/>
-                        <Button Content="Delete Tank" Command="{Binding DeleteTankCommand}" Margin="10" Padding="10"/>
-                        <Button Content="Update Tank" Command="{Binding UpdateTankCommand}" Margin="10" Padding="10"/>
+                        <Label Content="ELIMINATIONS" Background="Black" Foreground="Green" FontSize="20" FontFamily="Britannic Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedTank.Eliminations}" Padding="10" Background="LightGray" FontFamily="Britannic Bold" FontSize="15" />
+                        <Label Content="DATE MM/DD/YYYY" Background="Black" Foreground="Green" FontSize="20" FontFamily="Britannic Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedTank.StartOfService, StringFormat=d}" Padding="10" Background="LightGray" FontFamily="Britannic Bold" FontSize="15"/>
+                        <Label Content="CREW SPACE" Background="Black" Foreground="Green" FontSize="20" FontFamily="Britannic Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedTank.CrewSpace}" Padding="10" Background="LightGray" FontFamily="Britannic Bold" FontSize="15"/>
+                        <Label Content="CONFLICT" Background="Black" Foreground="Green" FontSize="20" FontFamily="Britannic Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedTank.ConflictId}" Padding="10" Background="LightGray" FontFamily="Britannic Bold" FontSize="15"/>
+                        <Button Content="CREATE TANK" Command="{Binding CreateTankCommand}" Margin="10" Padding="10" Background="DarkRed" Foreground="YellowGreen" FontFamily="Britannic Bold" FontSize="20"/>
+                        <Button Content="DELETE TANK" Command="{Binding DeleteTankCommand}" Margin="10" Padding="10" Background="DarkRed" Foreground="YellowGreen" FontFamily="Britannic Bold" FontSize="20"/>
+                        <Button Content="UPDATE TANK" Command="{Binding UpdateTankCommand}" Margin="10" Padding="10" Background="DarkRed" Foreground="YellowGreen" FontFamily="Britannic Bold" FontSize="20"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Background="Black">
+                <TabItem.Header>
+                    <Grid  >
+                        <Label Content="CREWS"  FontFamily="Britannic Bold" Foreground="Green" FontSize="20" />
+                    </Grid>
+                </TabItem.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <ListBox ItemsSource="{Binding Crews}" SelectedItem="{Binding SelectedCrew}" Background="Black" BorderBrush="Green" BorderThickness="3">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{Binding Name}" Foreground="Green" FontFamily="Britannic Bold" FontSize="25" BorderBrush="Green" BorderThickness="2"/>
+                                    <Label Content="----" Foreground="Green" FontFamily="Britannic Bold" FontSize="25" />
+                                    <Label Content="{Binding Rank}" Foreground="Green" FontFamily="Britannic Bold" FontSize="25" BorderBrush="Green" BorderThickness="2"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <StackPanel Grid.Column="1" Background="Black" >
+                        <Label Content="NAME" Background="Black" Foreground="Green" FontSize="20" FontFamily="Britannic Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedCrew.Name}" Padding="10" Background="LightGray" FontFamily="Britannic Bold" FontSize="15" />
+
+                        <Label Content="RANK" Background="Black" Foreground="Green" FontSize="20" FontFamily="Britannic Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedCrew.Rank}" Padding="10" Background="LightGray" FontFamily="Britannic Bold" FontSize="15" />
+
+                        <Label Content="AGE" Background="Black" Foreground="Green" FontSize="20" FontFamily="Britannic Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedCrew.Age}" Padding="10" Background="LightGray" FontFamily="Britannic Bold" FontSize="15" />
+
+                        <Label Content="PROFESSION" Background="Black" Foreground="Green" FontSize="20" FontFamily="Britannic Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedCrew.Profession, StringFormat=d}" Padding="10" Background="LightGray" FontFamily="Britannic Bold" FontSize="15"/>
+
+                        <Label Content="TANK ID" Background="Black" Foreground="Green" FontSize="20" FontFamily="Britannic Bold" Padding="10"/>
+                        <TextBox Text="{Binding SelectedCrew.TankId}" Padding="10" Background="LightGray" FontFamily="Britannic Bold" FontSize="15"/>
+
+                        <Button Content="CREATE CREW" Command="{Binding CreateCrewCommand}" Margin="10" Padding="10" Background="DarkRed" Foreground="YellowGreen" FontFamily="Britannic Bold" FontSize="20"/>
+                        <Button Content="DELETE CREW" Command="{Binding DeleteCrewCommand}" Margin="10" Padding="10" Background="DarkRed" Foreground="YellowGreen" FontFamily="Britannic Bold" FontSize="20"/>
+                        <Button Content="UPDATE CREW" Command="{Binding UpdateCrewCommand}" Margin="10" Padding="10" Background="DarkRed" Foreground="YellowGreen" FontFamily="Britannic Bold" FontSize="20"/>
                     </StackPanel>
                 </Grid>
             </TabItem>

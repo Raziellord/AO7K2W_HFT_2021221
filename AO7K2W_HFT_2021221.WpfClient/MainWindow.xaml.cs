@@ -24,5 +24,7 @@ namespace AO7K2W_HFT_2021221.WpfClient
         {
             InitializeComponent();
         }
+
+        
     }
 }
