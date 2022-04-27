@@ -10,7 +10,7 @@
         <local:MainWindowViewModel/>
     </Window.DataContext>
     <Grid Background="Black">
-        <TabControl BorderBrush="Black" Background="Black">
+        <TabControl BorderBrush="Black" Background="Black" >
             <TabItem  Background="Black">
                 <TabItem.Header>
                     <Grid  >

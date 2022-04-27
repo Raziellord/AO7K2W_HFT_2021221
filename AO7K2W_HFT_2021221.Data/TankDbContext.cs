@@ -65,7 +65,7 @@ namespace AO7K2W_HFT_2021221.Data
                 new Tank("3#Leopard 1#LeoWagen#41#4#1969*05*11#2"),
                 new Tank("4#Leopard 1#Leopold#2#4#1969*05*11#2"),
 
-
+                
                 new Tank("5#T34-85#Strong Ivan#51#5#1942*09*01#1"),
                 new Tank("6#T34(1941)#Vlad#32#4#1941*06*07#1"),
 
