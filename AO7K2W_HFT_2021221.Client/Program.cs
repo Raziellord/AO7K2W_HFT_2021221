@@ -8,7 +8,7 @@ using System.Linq;
 namespace AO7K2W_HFT_2021221.Client
 {
     class Program
-    {
+    { //Konzolos alkalmazás
         static RestService rest = new RestService("http://localhost:26569");
         static void Main(string[] args)
         {

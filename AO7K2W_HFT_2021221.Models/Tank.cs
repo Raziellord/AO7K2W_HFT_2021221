@@ -59,7 +59,7 @@ namespace AO7K2W_HFT_2021221.Models
             Crews = new HashSet<Crew>();
         }
 
-        public  string ToString()
+        public override string ToString()
         {
             return "Model: " + Model + "\n" + "Start of service: " + StartOfService.ToString() + " \n" + "Crew space: " + CrewSpace;
         }
